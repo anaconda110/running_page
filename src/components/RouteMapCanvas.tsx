@@ -48,7 +48,9 @@ export function RouteMapCanvas({
   const style =
     provider === 'mapbox'
       ? `mapbox://styles/mapbox/${dark === false ? 'light' : 'dark'}-v11`
-      : `https://basemaps.cartocdn.com/gl/${dark === false ? 'positron' : 'dark-matter'}-gl-style/style.json`;
+      : dark === false
+        ? 'https://tiles.openfreemap.org/styles/bright'
+        : 'https://tiles.openfreemap.org/styles/dark';
 
   const displayActivity = useMemo(
     () =>
